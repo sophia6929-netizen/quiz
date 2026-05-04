@@ -24,7 +24,6 @@ body {
   height: 6px;
   background: #ddd;
 }
-
 .progress-bar {
   height: 6px;
   background: #4CAF50;
@@ -54,11 +53,16 @@ body {
 .option.wrong { background: #ef9a9a; }
 
 button {
+  padding: 8px 10px;
+  margin: 4px;
+  border: none;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.main-btn {
   width: 100%;
   padding: 15px;
-  margin-top: 10px;
-  border: none;
-  border-radius: 10px;
   font-size: 16px;
 }
 
@@ -70,6 +74,20 @@ button {
   color: #555;
   margin-bottom: 10px;
 }
+
+.type-tag {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  margin-bottom: 6px;
+  color: white;
+}
+
+.single { background: #4CAF50; }
+.multi { background: #FF9800; }
+.blank { background: #2196F3; }
+
 </style>
 </head>
 
@@ -82,6 +100,9 @@ button {
 
 <div class="stats" id="stats"></div>
 
+<!-- 自动范围按钮 -->
+<div id="rangeButtons"></div>
+
 <div class="card">
   <div id="question"></div>
 </div>
@@ -90,8 +111,8 @@ button {
 
 <input id="input" style="display:none;width:100%;padding:10px">
 
-<button class="submit" onclick="submitAnswer()">提交</button>
-<button class="next" onclick="nextQuestion()">下一题</button>
+<button class="main-btn submit" onclick="submitAnswer()">提交</button>
+<button class="main-btn next" onclick="nextQuestion()">下一题</button>
 
 <div id="result"></div>
 
@@ -453,11 +474,85 @@ let questions = [
 let current = 0;
 let selected = [];
 
+let rangeStart = null;
+let rangeEnd = null;
+let wrongMode = false;
+
+// 自动生成范围按钮（支持500题）
+function generateRangeButtons(){
+  let container = document.getElementById("rangeButtons");
+  container.innerHTML = "";
+
+  container.innerHTML += `<button onclick="setRange(null,null)">全部</button>`;
+
+  let size = 50;
+  let total = questions.length;
+
+  for(let i = 1; i <= total; i += size){
+    let start = i;
+    let end = Math.min(i + size - 1, total);
+
+    container.innerHTML +=
+      `<button onclick="setRange(${start},${end})">${start}-${end}</button>`;
+  }
+
+  container.innerHTML += `<button onclick="startWrong()">错题</button>`;
+}
+
+// 范围
+function setRange(start, end){
+  rangeStart = start;
+  rangeEnd = end;
+  wrongMode = false;
+  current = 0;
+  showQuestion();
+}
+
+// 错题
+function startWrong(){
+  wrongMode = true;
+  current = 0;
+  showQuestion();
+}
+
+// 获取题目
+function getCurrentList(){
+  let list = questions;
+
+  if(wrongMode){
+    list = list.filter(q => q.wrong > 0);
+  }
+
+  if(rangeStart !== null && rangeEnd !== null){
+    list = list.filter(q => q.id >= rangeStart && q.id <= rangeEnd);
+  }
+
+  return list;
+}
+
+// 显示题目
 function showQuestion(){
-  let q = questions[current];
+  let list = getCurrentList();
+
+  if(list.length === 0){
+    document.getElementById("question").innerText = "当前范围没有题目";
+    document.getElementById("options").innerHTML = "";
+    return;
+  }
+
+  let q = list[current];
   selected = [];
 
-  document.getElementById("question").innerText = `第${q.id}题：${q.question}`;
+  let typeClass = "";
+  let typeText = "";
+
+  if(q.type === "single"){ typeClass="single"; typeText="单选题"; }
+  if(q.type === "multi"){ typeClass="multi"; typeText="多选题"; }
+  if(q.type === "blank"){ typeClass="blank"; typeText="填空题"; }
+
+  document.getElementById("question").innerHTML =
+    `<div class="type-tag ${typeClass}">${typeText}</div>
+     <div>第${q.id}题：${q.question}</div>`;
 
   let html = "";
 
@@ -473,10 +568,22 @@ function showQuestion(){
 
   document.getElementById("options").innerHTML = html;
   document.getElementById("result").innerText = "";
+
   updateStats();
 }
 
+// 选择（单选限制）
 function selectOpt(i){
+  let list = getCurrentList();
+  let q = list[current];
+
+  if(q.type === "single"){
+    selected = [i];
+    document.querySelectorAll(".option").forEach(el => el.classList.remove("selected"));
+    document.getElementById("opt"+i).classList.add("selected");
+    return;
+  }
+
   if(selected.includes(i)){
     selected = selected.filter(x=>x!==i);
     document.getElementById("opt"+i).classList.remove("selected");
@@ -486,8 +593,11 @@ function selectOpt(i){
   }
 }
 
+// 提交
 function submitAnswer(){
-  let q = questions[current];
+  let list = getCurrentList();
+  let q = list[current];
+
   q.done++;
 
   let correct = false;
@@ -517,14 +627,17 @@ function submitAnswer(){
 
   updateStats();
 
-  setTimeout(nextQuestion, 800); // 自动跳题
+  setTimeout(nextQuestion, 800);
 }
 
+// 下一题
 function nextQuestion(){
-  current = (current+1)%questions.length;
+  let list = getCurrentList();
+  current = (current + 1) % list.length;
   showQuestion();
 }
 
+// 统计
 function updateStats(){
   let total = questions.reduce((a,b)=>a+b.done,0);
   let correct = questions.reduce((a,b)=>a+b.correct,0);
@@ -538,6 +651,8 @@ function updateStats(){
     (total/questions.length*100)+"%";
 }
 
+// 初始化
+generateRangeButtons();
 showQuestion();
 
 </script>
