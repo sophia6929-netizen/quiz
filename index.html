@@ -100,7 +100,227 @@ button {
 <script>
 
 let questions = [
-  { id:1, type:"single", question:"测试题？", options:["A","B","C","D"], answer:[0], wrong:0,done:0,correct:0 }
+  { { id:1, type:"single", question:"圣经分为哪两部分？", options:["旧约与新约","律法与先知","历史与诗歌","福音与书信"], answer:[0], wrong:0,done:0,correct:0 },
+{ id:2, type:"single", question:"旧约主要讲什么？", options:["耶稣生平","天主与以色列的历史","宗徒传教","教会历史"], answer:[1], wrong:0,done:0,correct:0 },
+{ id:3, type:"single", question:"新约主要讲什么？", options:["创世","耶稣与教会","先知","法律"], answer:[1], wrong:0,done:0,correct:0 },
+{ id:4, type:"single", question:"圣经的核心主题是？", options:["战争","法律","救恩","历史"], answer:[2], wrong:0,done:0,correct:0 },
+{ id:5, type:"single", question:"创世纪讲什么？", options:["出埃及","创造与祖先","法律","王国"], answer:[1], wrong:0,done:0,correct:0 },
+
+{ id:6, type:"multi", question:"天主创造了什么？", options:["天地","人类","动物","神明"], answer:[0,1,2], wrong:0,done:0,correct:0 },
+{ id:7, type:"multi", question:"亚当厄娃的故事说明什么？", options:["罪的起源","自由选择","不服从","科技发展"], answer:[0,1,2], wrong:0,done:0,correct:0 },
+
+{ id:8, type:"blank", question:"起初，天主创造了____。", answer:"天地", wrong:0,done:0,correct:0 },
+{ id:9, type:"blank", question:"天主照自己的____造了人。", answer:"肖像", wrong:0,done:0,correct:0 },
+
+{ id:10, type:"single", question:"诺厄方舟象征什么？", options:["毁灭","救恩","战争","财富"], answer:[1], wrong:0,done:0,correct:0 },
+
+{ id:11, type:"multi", question:"亚巴郎的特点是？", options:["信德","顺从","怀疑","骄傲"], answer:[0,1], wrong:0,done:0,correct:0 },
+
+{ id:12, type:"blank", question:"亚巴郎被称为____之父。", answer:"信德", wrong:0,done:0,correct:0 },
+
+{ id:13, type:"single", question:"梅瑟带领以色列人做什么？", options:["建城","出埃及","打仗","写书"], answer:[1], wrong:0,done:0,correct:0 },
+
+{ id:14, type:"multi", question:"十诫包括？", options:["敬拜天主","孝敬父母","不可杀人","随意行事"], answer:[0,1,2], wrong:0,done:0,correct:0 },
+
+{ id:15, type:"blank", question:"上主是唯一的____。", answer:"天主", wrong:0,done:0,correct:0 },
+
+{ id:16, type:"single", question:"达味是谁？", options:["先知","君王","司祭","农夫"], answer:[1], wrong:0,done:0,correct:0 },
+
+{ id:17, type:"multi", question:"达味的特点包括？", options:["勇敢","信赖天主","谦卑","自私"], answer:[0,1,2], wrong:0,done:0,correct:0 },
+
+{ id:18, type:"blank", question:"上主是我的____，我一无所缺。", answer:"牧者", wrong:0,done:0,correct:0 },
+
+{ id:19, type:"single", question:"撒罗满以什么著称？", options:["力量","智慧","战争","财富"], answer:[1], wrong:0,done:0,correct:0 },
+
+{ id:20, type:"multi", question:"智慧文学包括？", options:["箴言","训道篇","雅歌","福音"], answer:[0,1,2], wrong:0,done:0,correct:0 },
+
+{ id:21, type:"blank", question:"敬畏上主是智慧的____。", answer:"开端", wrong:0,done:0,correct:0 },
+
+{ id:22, type:"single", question:"先知的作用是？", options:["预测未来","传达天主旨意","治理国家","作战"], answer:[1], wrong:0,done:0,correct:0 },
+
+{ id:23, type:"multi", question:"先知信息包括？", options:["悔改","正义","希望","享乐"], answer:[0,1,2], wrong:0,done:0,correct:0 },
+
+{ id:24, type:"blank", question:"你们应当____，因为天主是圣的。", answer:"成圣", wrong:0,done:0,correct:0 },
+
+{ id:25, type:"single", question:"依撒意亚预言谁？", options:["君王","默西亚","先知","司祭"], answer:[1], wrong:0,done:0,correct:0 },
+
+{ id:26, type:"multi", question:"默西亚的特征包括？", options:["和平","救恩","正义","暴力"], answer:[0,1,2], wrong:0,done:0,correct:0 },
+
+{ id:27, type:"blank", question:"看，一位童女将怀孕生子，人将称他为____。", answer:"厄玛奴耳", wrong:0,done:0,correct:0 },
+
+{ id:28, type:"single", question:"以色列人被掳到哪里？", options:["埃及","巴比伦","罗马","希腊"], answer:[1], wrong:0,done:0,correct:0 },
+
+{ id:29, type:"multi", question:"流亡的意义包括？", options:["惩罚","反省","更新","享乐"], answer:[0,1,2], wrong:0,done:0,correct:0 },
+
+{ id:30, type:"blank", question:"上主是忠信的____。", answer:"天主", wrong:0,done:0,correct:0 },
+
+{ id:31, type:"single", question:"归回后重建什么？", options:["宫殿","圣殿","城墙","军队"], answer:[1], wrong:0,done:0,correct:0 },
+
+{ id:32, type:"multi", question:"重建时期的领袖包括？", options:["厄斯德拉","乃赫米雅","梅瑟","达味"], answer:[0,1], wrong:0,done:0,correct:0 },
+
+{ id:33, type:"blank", question:"你们要刚强壮胆，不要____。", answer:"害怕", wrong:0,done:0,correct:0 },
+
+{ id:34, type:"single", question:"旧约最终指向什么？", options:["法律","历史","默西亚","战争"], answer:[2], wrong:0,done:0,correct:0 },
+{ id:35, type:"multi", question:"四大先知书包括哪些？", options:["依撒意亚","耶肋米亚","厄则克耳","达尼尔"], answer:[0,1,2,3], wrong:0,done:0,correct:0 },
+{ id:36, type:"multi", question:"四活物的形象有哪些？", options:["狮","牛","马","鹰","人"], answer:[0,1,3,4], wrong:0,done:0,correct:0 },
+{ id:37, type:"multi", question:"达尼尔书语言有哪些？", options:["希伯来语","希腊语","拉丁语","阿剌美语"], answer:[0,3], wrong:0,done:0,correct:0 },
+{ id:38, type:"multi", question:"天使在哪些场景救达尼尔？", options:["风暴","火窑","狮子圈","深渊"], answer:[1,2], wrong:0,done:0,correct:0 },
+{ id:39, type:"multi", question:"亚毛斯书神视有哪些？", options:["蝗灾","铅垂线","果篮","消灭恶人"], answer:[0,1,2,3], wrong:0,done:0,correct:0 },
+{ id:40, type:"multi", question:"约纳祈祷表达哪些情感？", options:["感恩","悔改","求救","抱怨"], answer:[0,1,2], wrong:0,done:0,correct:0 },
+
+{ id:41, type:"single", question:"哪部福音引用米7:6？", options:["玛窦","马尔谷","路加","若望"], answer:[0], wrong:0,done:0,correct:0 },
+{ id:42, type:"single", question:"匝加利亚预言包含？", options:["骑驴进城","被卖价钱","带来和平","达味后裔"], answer:[0], wrong:0,done:0,correct:0 },
+{ id:43, type:"single", question:"玛拉基亚先知主要谴责什么？", options:["外族侵略","礼仪虚伪","经济贫穷","战争"], answer:[1], wrong:0,done:0,correct:0 },
+{ id:44, type:"single", question:"依撒意亚书中的“受苦仆人”象征谁？", options:["先知","以色列","默西亚","君王"], answer:[2], wrong:0,done:0,correct:0 },
+{ id:45, type:"single", question:"耶肋米亚被称为什么先知？", options:["喜乐","和平","流泪","战争"], answer:[2], wrong:0,done:0,correct:0 },
+{ id:46, type:"single", question:"厄则克耳看到枯骨复生象征什么？", options:["战争","复活与希望","审判","毁灭"], answer:[1], wrong:0,done:0,correct:0 },
+{ id:47, type:"single", question:"达尼尔在狮子圈中因为什么得救？", options:["勇气","智慧","信德","运气"], answer:[2], wrong:0,done:0,correct:0 },
+
+{ id:48, type:"multi", question:"约纳的故事包含哪些主题？", options:["悔改","宽恕","天主慈悲","逃避使命"], answer:[0,1,2,3], wrong:0,done:0,correct:0 },
+{ id:49, type:"multi", question:"耶稣受试探的内容包括？", options:["食物","权力","荣耀","财富"], answer:[0,1,2], wrong:0,done:0,correct:0 },
+{ id:50, type:"multi", question:"真福八端中提到哪些人？", options:["贫穷的人","哀恸的人","温良的人","富有的人"], answer:[0,1,2], wrong:0,done:0,correct:0 },
+{ id:51, type:"single", question:"何谓先知的使命？", options:["预言未来","传达天主的话","带领战争","治理国家"], answer:[1], wrong:0,done:0,correct:0 },
+{ id:52, type:"single", question:"依撒意亚书主要信息是？", options:["审判","希望与救恩","战争","法律"], answer:[1], wrong:0,done:0,correct:0 },
+{ id:53, type:"single", question:"耶肋米亚生活在哪个时期？", options:["流亡前","流亡中","流亡后","新约"], answer:[0], wrong:0,done:0,correct:0 },
+{ id:54, type:"single", question:"厄则克耳主要面对谁？", options:["外邦人","流亡中的以民","君王","司祭"], answer:[1], wrong:0,done:0,correct:0 },
+{ id:55, type:"single", question:"达尼尔象征什么？", options:["智慧","勇气","信德","财富"], answer:[2], wrong:0,done:0,correct:0 },
+
+{ id:56, type:"multi", question:"先知常用哪些方式表达？", options:["象征行动","比喻","预言","诗歌"], answer:[0,1,2,3], wrong:0,done:0,correct:0 },
+{ id:57, type:"multi", question:"旧约先知的主题包括？", options:["悔改","正义","敬拜","财富"], answer:[0,1,2], wrong:0,done:0,correct:0 },
+
+{ id:58, type:"blank", question:"上主是我的____，我一无所缺。", answer:"牧者", wrong:0,done:0,correct:0 },
+{ id:59, type:"blank", question:"你们应当全心____上主。", answer:"爱", wrong:0,done:0,correct:0 },
+
+{ id:60, type:"single", question:"玛窦福音写给谁？", options:["外邦人","犹太人","罗马人","希腊人"], answer:[1], wrong:0,done:0,correct:0 },
+{ id:61, type:"single", question:"马尔谷福音特点是？", options:["最长","最短","最复杂","最难"], answer:[1], wrong:0,done:0,correct:0 },
+{ id:62, type:"single", question:"路加福音强调什么？", options:["法律","慈悲","战争","财富"], answer:[1], wrong:0,done:0,correct:0 },
+{ id:63, type:"single", question:"若望福音强调什么？", options:["历史","神性","政治","法律"], answer:[1], wrong:0,done:0,correct:0 },
+
+{ id:64, type:"multi", question:"四福音作者是？", options:["玛窦","马尔谷","路加","若望"], answer:[0,1,2,3], wrong:0,done:0,correct:0 },
+
+{ id:65, type:"blank", question:"耶稣诞生在____。", answer:"白冷", wrong:0,done:0,correct:0 },
+{ id:66, type:"blank", question:"东方贤士带来____。", answer:"黄金乳香没药", wrong:0,done:0,correct:0 },
+
+{ id:67, type:"single", question:"耶稣十二岁时在哪里？", options:["圣殿","家中","山上","湖边"], answer:[0], wrong:0,done:0,correct:0 },
+
+{ id:68, type:"multi", question:"耶稣的教导方式包括？", options:["比喻","讲道","奇迹","沉默"], answer:[0,1,2], wrong:0,done:0,correct:0 },
+
+{ id:69, type:"blank", question:"你们当悔改，因为天国____。", answer:"临近了", wrong:0,done:0,correct:0 },
+
+{ id:70, type:"single", question:"耶稣召叫的第一个门徒是谁？", options:["伯多禄","若望","多默","犹达斯"], answer:[0], wrong:0,done:0,correct:0 },
+
+{ id:71, type:"multi", question:"耶稣的奇迹表现了什么？", options:["权能","慈悲","天主性","娱乐"], answer:[0,1,2], wrong:0,done:0,correct:0 },
+
+{ id:72, type:"blank", question:"信德若没有____是死的。", answer:"行为", wrong:0,done:0,correct:0 },
+
+{ id:73, type:"single", question:"谁否认耶稣三次？", options:["若望","伯多禄","犹达斯","多默"], answer:[1], wrong:0,done:0,correct:0 },
+
+{ id:74, type:"multi", question:"耶稣受难经历包括？", options:["鞭打","背十字架","被钉十字架","升天"], answer:[0,1,2], wrong:0,done:0,correct:0 },
+
+{ id:75, type:"blank", question:"父啊，宽恕他们，因为他们不知道____。", answer:"他们做什么", wrong:0,done:0,correct:0 },
+
+{ id:76, type:"single", question:"谁首先发现空坟墓？", options:["宗徒","玛利亚玛达肋纳","伯多禄","士兵"], answer:[1], wrong:0,done:0,correct:0 },
+
+{ id:77, type:"multi", question:"复活的标志包括？", options:["空墓","显现","门徒见证","战争"], answer:[0,1,2], wrong:0,done:0,correct:0 },
+
+{ id:78, type:"blank", question:"你们要去使万民成为我的____。", answer:"门徒", wrong:0,done:0,correct:0 },
+
+{ id:79, type:"single", question:"圣神降临后宗徒做什么？", options:["逃跑","传教","隐藏","睡觉"], answer:[1], wrong:0,done:0,correct:0 },
+
+{ id:80, type:"multi", question:"初期教会生活包括？", options:["祈祷","团体生活","分享","战争"], answer:[0,1,2], wrong:0,done:0,correct:0 },
+
+{ id:81, type:"blank", question:"你们要常常____。", answer:"祈祷", wrong:0,done:0,correct:0 },
+
+{ id:82, type:"single", question:"保禄在哪里归化？", options:["耶路撒冷","大马士革","罗马","安提约基雅"], answer:[1], wrong:0,done:0,correct:0 },
+
+{ id:83, type:"multi", question:"保禄书信主题包括？", options:["信德","爱德","望德","法律主义"], answer:[0,1,2], wrong:0,done:0,correct:0 },
+
+{ id:84, type:"blank", question:"一切都是出于____。", answer:"天主", wrong:0,done:0,correct:0 },
+
+{ id:85, type:"single", question:"默示录作者是谁？", options:["伯多禄","若望","保禄","雅各伯"], answer:[1], wrong:0,done:0,correct:0 },
+
+{ id:86, type:"multi", question:"末世象征包括？", options:["审判","新天新地","兽","荣耀"], answer:[0,1,2,3], wrong:0,done:0,correct:0 },
+
+{ id:87, type:"blank", question:"天主将擦去他们的一切____。", answer:"眼泪", wrong:0,done:0,correct:0 },
+
+{ id:88, type:"single", question:"圣经最后一卷是？", options:["创世纪","福音","默示录","出谷纪"], answer:[2], wrong:0,done:0,correct:0 },
+
+{ id:89, type:"multi", question:"天主的属性包括？", options:["爱","正义","慈悲","有限"], answer:[0,1,2], wrong:0,done:0,correct:0 },
+
+{ id:90, type:"blank", question:"天主是____。", answer:"爱", wrong:0,done:0,correct:0 },
+
+{ id:91, type:"single", question:"祈祷是什么？", options:["说话","与天主交谈","仪式","法律"], answer:[1], wrong:0,done:0,correct:0 },
+
+{ id:92, type:"multi", question:"祈祷形式包括？", options:["赞美","感谢","祈求","忏悔"], answer:[0,1,2,3], wrong:0,done:0,correct:0 },
+
+{ id:93, type:"blank", question:"求你今天赏给我们日用的____。", answer:"食粮", wrong:0,done:0,correct:0 },
+
+{ id:94, type:"single", question:"爱近人如同什么？", options:["法律","自己","朋友","家人"], answer:[1], wrong:0,done:0,correct:0 },
+
+{ id:95, type:"multi", question:"爱的表现包括？", options:["宽恕","帮助","忍耐","仇恨"], answer:[0,1,2], wrong:0,done:0,correct:0 },
+
+{ id:96, type:"blank", question:"你们要彼此____。", answer:"相爱", wrong:0,done:0,correct:0 },
+
+{ id:97, type:"single", question:"谁是最大的？", options:["最强的人","最有钱的人","最谦卑的人","最聪明的人"], answer:[2], wrong:0,done:0,correct:0 },
+
+{ id:98, type:"multi", question:"谦卑表现为？", options:["服务","忍让","自夸","顺服"], answer:[0,1,3], wrong:0,done:0,correct:0 },
+
+{ id:99, type:"blank", question:"凡自高的必被____。", answer:"贬抑", wrong:0,done:0,correct:0 },
+
+{ id:100, type:"single", question:"谁是好牧人？", options:["先知","耶稣","君王","司祭"], answer:[1], wrong:0,done:0,correct:0 },
+
+{ id:101, type:"blank", question:"我是善牧，我认识我的____。", answer:"羊", wrong:0,done:0,correct:0 },
+{ id:102, type:"blank", question:"我的羊听我的____。", answer:"声音", wrong:0,done:0,correct:0 },
+{ id:103, type:"blank", question:"我赐给他们____。", answer:"永生", wrong:0,done:0,correct:0 },
+{ id:104, type:"blank", question:"谁也不能从我手中把他们____。", answer:"夺去", wrong:0,done:0,correct:0 },
+
+{ id:105, type:"blank", question:"耶稣说：“你们是地上的____。”", answer:"盐", wrong:0,done:0,correct:0 },
+{ id:106, type:"blank", question:"你们是世界的____。", answer:"光", wrong:0,done:0,correct:0 },
+{ id:107, type:"blank", question:"求你们先寻求天主的____。", answer:"国和义德", wrong:0,done:0,correct:0 },
+{ id:108, type:"blank", question:"你们不要为明天____。", answer:"忧虑", wrong:0,done:0,correct:0 },
+{ id:101, type:"blank", question:"人将称他的名字为____。", answer:"厄玛奴耳", wrong:0,done:0,correct:0 },
+{ id:102, type:"blank", question:"耶稣开始宣讲时说：“____”。", answer:"你们悔改吧！因为天国临近了", wrong:0,done:0,correct:0 },
+{ id:103, type:"blank", question:"洗者若翰吃的是____。", answer:"蝗虫和野蜜", wrong:0,done:0,correct:0 },
+{ id:104, type:"blank", question:"耶稣在旷野中有____服侍他。", answer:"天使", wrong:0,done:0,correct:0 },
+{ id:109, type:"single", question:"若翰洗者的使命是？", options:["宣讲法律","预备上主的道路","建立王国","行奇迹"], answer:[1], wrong:0,done:0,correct:0 },
+{ id:110, type:"single", question:"耶稣受洗后天上有什么声音？", options:["这是我的仆人","这是我的爱子","这是君王","这是先知"], answer:[1], wrong:0,done:0,correct:0 },
+{ id:111, type:"single", question:"耶稣在旷野禁食多少天？", options:["30","40","50","7"], answer:[1], wrong:0,done:0,correct:0 },
+{ id:112, type:"single", question:"耶稣第一个奇迹是？", options:["治病","驱魔","变水为酒","复活人"], answer:[2], wrong:0,done:0,correct:0 },
+{ id:113, type:"single", question:"山中圣训发生在哪里？", options:["山上","圣殿","湖边","城里"], answer:[0], wrong:0,done:0,correct:0 },
+
+{ id:114, type:"multi", question:"耶稣的门徒有哪些？", options:["伯多禄","若望","保禄","雅各伯"], answer:[0,1,3], wrong:0,done:0,correct:0 },
+{ id:115, type:"multi", question:"比喻的特点是？", options:["简单","易懂","隐藏真理","复杂"], answer:[0,1,2], wrong:0,done:0,correct:0 },
+{ id:116, type:"multi", question:"耶稣行的奇迹包括？", options:["治病","驱魔","复活","创造天地"], answer:[0,1,2], wrong:0,done:0,correct:0 },
+
+{ id:117, type:"blank", question:"你们当彼此____。", answer:"相爱", wrong:0,done:0,correct:0 },
+{ id:118, type:"blank", question:"我是世界的____。", answer:"光", wrong:0,done:0,correct:0 },
+{ id:119, type:"blank", question:"我是生命的____。", answer:"粮", wrong:0,done:0,correct:0 },
+
+{ id:120, type:"single", question:"耶稣被钉在哪里？", options:["耶路撒冷","加里肋亚","白冷","纳匝肋"], answer:[0], wrong:0,done:0,correct:0 },
+{ id:121, type:"single", question:"谁出卖了耶稣？", options:["伯多禄","若望","犹达斯","多默"], answer:[2], wrong:0,done:0,correct:0 },
+{ id:122, type:"single", question:"耶稣复活是在第几天？", options:["第一天","第三天","第七天","第四天"], answer:[1], wrong:0,done:0,correct:0 },
+
+{ id:123, type:"multi", question:"复活后耶稣显现给谁？", options:["玛利亚玛达肋纳","宗徒们","门徒","法利塞人"], answer:[0,1,2], wrong:0,done:0,correct:0 },
+
+{ id:124, type:"blank", question:"你们往普天下去，向一切受造物宣讲____。", answer:"福音", wrong:0,done:0,correct:0 },
+{ id:125, type:"single", question:"宗徒大事录主要讲什么？", options:["耶稣生平","宗徒传教","旧约历史","法律"], answer:[1], wrong:0,done:0,correct:0 },
+{ id:126, type:"single", question:"圣神降临在哪一天？", options:["逾越节","五旬节","安息日","赎罪日"], answer:[1], wrong:0,done:0,correct:0 },
+
+{ id:127, type:"multi", question:"圣神的象征包括？", options:["火","风","水","鸽子"], answer:[0,1,3], wrong:0,done:0,correct:0 },
+
+{ id:128, type:"blank", question:"信德、望德、爱德中最大的是____。", answer:"爱德", wrong:0,done:0,correct:0 },
+
+{ id:129, type:"single", question:"保禄原名是？", options:["若望","扫禄","伯多禄","雅各伯"], answer:[1], wrong:0,done:0,correct:0 },
+
+{ id:130, type:"multi", question:"保禄传教去过哪些地方？", options:["小亚细亚","希腊","罗马","埃及"], answer:[0,1,2], wrong:0,done:0,correct:0 },
+
+{ id:131, type:"blank", question:"义人因____而生活。", answer:"信德", wrong:0,done:0,correct:0 },
+
+{ id:132, type:"single", question:"默示录主要讲什么？", options:["历史","预言","末世与胜利","法律"], answer:[2], wrong:0,done:0,correct:0 },
+
+{ id:133, type:"multi", question:"默示录中的象征包括？", options:["龙","羔羊","新耶路撒冷","十字架"], answer:[0,1,2], wrong:0,done:0,correct:0 },
+
+{ id:134, type:"blank", question:"我是阿尔法，我是____。", answer:"欧默加", wrong:0,done:0,correct:0 } }
 ];
 
 let current = 0;
